@@ -1,0 +1,13 @@
+body {
+    background-image: url("rpg_screen.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+main {
+    width: 85%;
+    margin: 0 auto;
+}
+
