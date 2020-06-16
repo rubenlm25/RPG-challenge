@@ -18,7 +18,12 @@
         var innerracep2 = document.querySelector(".titleracep2").innerHTML;
         var inneritemp1 = document.querySelector(".titleitemp1").innerHTML;
         var inneritemp2 = document.querySelector(".titleitemp2").innerHTML;
-        if(innerracep1 != example1 && innerracep2 != example1 && inneritemp1 != example2 && inneritemp2!= example2){
+        var name1 = document.getElementById("nameone").value;
+        var name2 = document.getElementById("nametwo").value;
+        if(innerracep1 != example1 && innerracep2 != example1 && inneritemp1 != example2 && inneritemp2!= example2 && name1!="" && name2 != ""){
+            
+            
+            
             nav.classList.add("isclose");
         }
         else{
