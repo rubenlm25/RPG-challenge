@@ -7,7 +7,39 @@ body {
 }
 
 main {
-    width: 85%;
+    width: 80%;
     margin: 0 auto;
 }
 
+/* h1 */
+
+.creation-section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    /* bordures temporaires */
+    border-style: solid;
+    border-width: 1px;
+}
+
+.character-visual {
+    margin: 0;
+
+    /* bordures temporaires */
+    border-style: solid;
+    border-width: 1px;
+}
+
+.item-visual {
+    margin: 0;
+
+    /* bordures temporaires */
+    border-style: solid;
+    border-width: 1px;
+}
+
+.character-infos {
+    /* bordures temporaires */
+    border-style: solid;
+    border-width: 1px;
+}
