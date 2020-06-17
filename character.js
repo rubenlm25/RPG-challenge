@@ -34,6 +34,7 @@
         var name2 = document.getElementById("nametwo").value;
         if(innerracep1 != example1 && innerracep2 != example1 && inneritemp1 != example2 && inneritemp2!= example2 && name1!="" && name2 != ""){
             nav.classList.add("isclose");
+            
         }
         else{
             alert("error");

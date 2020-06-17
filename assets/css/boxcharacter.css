@@ -62,8 +62,7 @@ table {
   -ms-grid-rows: 4;
       grid-template-rows: 4;
   text-align: center;
-  width: 100%;
-  height: 50%;
+  background-color: white;
 }
 
 .character .inputname1 {
