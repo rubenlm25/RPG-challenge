@@ -7,8 +7,6 @@ body {
 }
 
 main {
-    display: grid;
-    grid-template-rows: auto;
     width: 80%;
     margin: 0 auto;
     padding: 30px 0 0 0;
@@ -19,6 +17,13 @@ h1 {
     width: 50%;
     text-align: center;
     margin: 0 auto 30px auto;
+    border-style: solid;
+    border-image-source: url("../images/wood-texture.jpg");
+    border-image-slice: 12.5;
+    border-image-repeat: stretch;
+    border-width: 12.5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(224, 218, 193, 0.9);
 }
 
 .character {
@@ -30,10 +35,15 @@ h1 {
     height: 50%;
 }
 
-.character-visual {
-    margin: 0 0 20px 0;
-    width: 200px;
-    height: 200px;
+.character-1, .character-2 {
+    display: grid;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+}
+
+.character-visual-1, .character-visual-2 {
+    margin: 0 0 10px 0;
+    width: 175px;
+    height: 175px;
     border-style: solid;
     border-image-source: url("../images/wood-texture.jpg");
     border-image-slice: 12.5;
@@ -47,10 +57,39 @@ img {
     width: 100%;
 }
 
-.item-visual {
-    margin: 0 auto 0 auto;
+.item-visual-1, .item-visual-2 {
+    margin: 0 auto 20px auto;
     width: 50px;
     height: 50px;
+    border-style: solid;
+    border-image-source: url("../images/wood-texture.jpg");
+    border-image-slice: 12.5;
+    border-image-repeat: stretch;
+    border-width: 12.5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(224, 218, 193, 0.9);
+}
+
+.name-1, .name-2 {
+    margin: 0 0 20px 0;
+    border-style: solid;
+    border-image-source: url("../images/wood-texture.jpg");
+    border-image-slice: 12.5;
+    border-image-repeat: stretch;
+    border-width: 12.5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(224, 218, 193, 0.9);
+}
+
+.health-bar-1, .health-bar-2 {
+    margin: 0 0 20px 0;
+    border-style: solid;
+    border-image-source: url("../images/wood-texture.jpg");
+    border-image-slice: 12.5;
+    border-image-repeat: stretch;
+    border-width: 12.5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(224, 218, 193, 0.9);
 }
 
 .pconfirm {
@@ -62,8 +101,25 @@ img {
     grid-template-columns: 50% 50%;
 }
 
-.movesp1 > ul, .movesp2 > ul {
+.moves-1, .moves-2 {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
     justify-items: center;
+}
+
+.moves-1 > li, .moves-2 > li {
+    border-style: solid;
+    border-image-source: url("../images/wood-texture.jpg");
+    border-image-slice: 12.5;
+    border-image-repeat: stretch;
+    border-width: 12.5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(224, 218, 193, 0.9);
+}
+
+
+
+button {
+    width: 100%;
+    border: 0;
 }
