@@ -18,8 +18,7 @@ function Person(race, item) {
         return console.log(`I am a ${this.race}, I wield a ${this.item}, my total health point are ${this.maxHealth}`);
     };
 }
-
-function attack() {
+function attack(atacker,defender) {
     let startdammage;
     let actualdammage;
     let returndammage = 0;
@@ -49,3 +48,49 @@ function attack() {
             currenthealth.player2-=actualdammage;
 
     }
+//test personnage//
+let playerone = Person("Human","Boots");
+let playertwo = Person("Elf","Staff");
+///////////////////
+let turn = 1;
+let finishturn;
+let finishgame = 0;
+let atacker;
+let defenser;
+let actionatk;
+let actionheal;
+let actionyield;
+////////////////////
+while(finishgame == 0){
+    finishturn = 0;
+    if(turn%2==0){
+        atacker = playertwo;
+        defenser = playerone;
+        actionatk = document.getElementById("hit-char-2");
+        actionheal = document.getElementById("heal-char-2");
+        actionyield = document.getElementById("yield-char-2");
+
+    }
+    else{
+        atacker = playerone;
+        defenser = playertwo;
+        actionatk = document.getElementById("hit-char-1");
+        actionheal = document.getElementById("heal-char-1");
+        actionyield = document.getElementById("yield-char-1");
+    }
+    while(finishturn == 0){
+        if(actionatk.click == true){
+            attack(atacker,defenser);
+            finishturn = 1;
+        }
+        else if(actionheal.click == true){
+
+        }
+        else if(actionyield.click == true){
+            finishturn = 1;
+            finishgame = 1;
+            victory = defenser;
+        }
+    }
+    turn ++;
+}
