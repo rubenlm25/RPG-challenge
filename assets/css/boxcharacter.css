@@ -53,8 +53,6 @@ table {
 }
 
 .character {
-  position: fixed;
-  bottom: 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50%,50%;
