@@ -1,3 +1,11 @@
+let buttonatkp1=document.getElementById("hit-char-1");
+let buttonhealp1=document.getElementById("heal-char-1");
+let buttonyieldp1=document.getElementById("yield-char-1");
+let buttonatkp2=document.getElementById("hit-char-1");
+let buttonhealp2=document.getElementById("heal-char-1");
+let buttonyieldp2=document.getElementById("yield-char-1");
+let attacker;
+let defender;
 function Person(race, item) {
     this.race = race;
     this.item = item;
@@ -18,7 +26,14 @@ function Person(race, item) {
         return console.log(`I am a ${this.race}, I wield a ${this.item}, my total health point are ${this.maxHealth}`);
     };
 }
-
+function verificationmort(healone,healtwo){
+    if(healone <= 0){
+        finishgame = 2;
+    }
+    if(healtwo <= 0){
+        finishgame = 1;
+    }
+}
 function attack(atacker, defender) {
     let startdammage;
     let actualdammage;
@@ -46,8 +61,10 @@ function attack(atacker, defender) {
             }
             break;
     }
-    currenthealth.player2 -= actualdammage;
+    defender.currenthealth -= actualdammage;
+    console.log("atack de "+actualdammage+ "il reste ");
     
+
 
 }
 
@@ -64,90 +81,96 @@ function commencement() {
     }
 
 }
-
-function game(race1, race2, item1, item2) {
-    let playerone = new Person(race1, item1);
-    let playertwo = new Person(race2, item2);
-    if (playerone.race == "Orc") {
-        playerone.maxHealth = 140;
-        playerone.currenthealth = 140;
-    }
-    if (playertwo.race == "Orc") {
-        playertwo.maxHealth = 140;
-        playertwo.currenthealth = 140;
-    }
-    console.log(playerone.currenthealth);
-    let turn = 1;
-    let finishturn;
-    let finishgame = 0;
-    let atacker;
-    let defenser;
-    let actionatk;
-    let actionheal;
-    let actionyield;
-    let valeurdepart = commencement();
-    // while (finishgame == 0) {
-        finishturn = 0;
-        if (valeurdepart == 0) {
-            if (turn % 2 == 0) {
-                atacker = playertwo;
-                defenser = playerone;
-                actionatk = document.getElementById("hit-char-2");
-                actionheal = document.getElementById("heal-char-2");
-                actionyield = document.getElementById("yield-char-2");
-
-            } else {
-                atacker = playerone;
-                defenser = playertwo;
-                actionatk = document.getElementById("hit-char-1");
-                actionheal = document.getElementById("heal-char-1");
-                actionyield = document.getElementById("yield-char-1");
-            }
-        }
-        else{
-            if (turn % 2 == 0) {
-                atacker = playerone;
-                defenser = playertwo;
-                actionatk = document.getElementById("hit-char-1");
-                actionheal = document.getElementById("heal-char-1");
-                actionyield = document.getElementById("yield-char-1");
+function disablep1(){
+    buttonatkp1.disabled = true;
+    buttonhealp1.disabled = true;
+    buttonyieldp1.disabled = true;
+}
+function disablep2(){
+    buttonatkp2.disabled = true;
+    buttonhealp2.disabled = true;
+    buttonyieldp2.disabled = true;
+}
+function enablep1(){
+    buttonatkp1.disabled = false;
+    buttonhealp1.disabled = false;
+    buttonyieldp1.disabled = false;
+}
+function enablep2(){
+    buttonatkp2.disabled = false;
+    buttonhealp2.disabled = false;
+    buttonyieldp2.disabled = false;
+}
+function switchatkdef(){
+    let copy = attacker;
+    attacker = defender;
+    defender = copy;
+}
+// function game(race1, race2, item1, item2) {
+//     let playerone = new Person(race1, item1);
+//     let playertwo = new Person(race2, item2);
+//     let finishgame = 0;
+//     if (playerone.race == "Orc") {
+//         playerone.maxHealth = 140;
+//         playerone.currenthealth = 140;
+//     }
+//     if (playertwo.race == "Orc") {
+//         playertwo.maxHealth = 140;
+//         playertwo.currenthealth = 140;
+//     }
+//     console.log(playerone.currenthealth);
+//     let valeurtour = commencement();
+//     console.log(valeurtour);
     
-            } else {
-                atacker = playertwo;
-                defenser = playerone;
-                actionatk = document.getElementById("hit-char-2");
-                actionheal = document.getElementById("heal-char-2");
-                actionyield = document.getElementById("yield-char-2");
-            }
-        }
-        console.log(atacker);
-        console.log(defenser);
+//     if(valeurtour == "0"){
+//         disablep1();
+//         attacker = playertwo;
+//         defender = playerone;
+        
+//     }
+//     if(valeurtour == "1"){
+//         disablep2();
+//         attacker = playerone;
+//         defender = playertwo;
+//     }
 
-        
-        while (finishturn == 0) {
-            console.log("rentrer dans la boucle");
-            if(atacker.race == "Vampire"){
-                let lifesteal = (defenser.currenthealth/100)*10;
-                defenser.currenthealth-=lifesteal;
-                if(atacker.currenthealth+lifesteal>atacker.maxHealth){
-                    atacker.currenthealth=atacker.maxHealth
-                }
-                else{
-                    atacker.currenthealth+=lifesteal;
-                }
-            }
-            if (actionatk.click == true) {
-                attack(atacker, defenser);
-                finishturn = 1;
-            } else if (actionheal.click == true) {
-                finishturn=1;
-            } else if (actionyield.click == true) {
-                finishturn = 1;
-                finishgame = 1;
-                victory = defenser;
-            }
-        }
-        
-        turn++;
-        console.log(turn);
-    }
+
+// }
+function creationpersonnage(race,item){
+    let player = new Person(race,item);
+    return player;
+}
+buttonatkp1.addEventListener("click",function(){
+    attack(attacker,defender);
+    disablep1();
+    enablep2();
+    switchatkdef();
+    verificationmort(playerone.currenthealth,playertwo.currenthealth);
+    
+    
+});
+buttonhealp1.addEventListener("click",function(){
+    heal;
+    disablep1();
+    enablep2();
+    switchatkdef();
+
+});
+buttonyieldp1.addEventListener("click",function(){
+    finishgame = 2;
+});
+buttonatkp2.addEventListener("click",function(){
+    attack(attacker,defender);
+    disablep2();
+    enablep1();
+    switchatkdef();
+});
+buttonhealp2.addEventListener("click",function(){
+    heal;
+    disablep2();
+    enablep1();
+    switchatkdef();
+});
+buttonyieldp2.addEventListener("click",function(){
+    finishgame = 1;
+});
