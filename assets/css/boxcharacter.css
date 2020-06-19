@@ -149,7 +149,8 @@ table {
 }
 
 .character.isclose {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  /*-webkit-transform: translateX(150%);
+          transform: translateX(150%);*/
+          display: none;
 }
 /*# sourceMappingURL=style.css.map */
