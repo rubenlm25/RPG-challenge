@@ -4,122 +4,253 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
+    font-family: 'New Yorker', cursive;
 }
 
 main {
     width: 80%;
     margin: 0 auto;
-    padding: 30px 0 0 0;
+    padding: 20px 0 0 0;
+}
+
+h1, .character-visual-1, .character-visual-2, .item-visual-1, .item-visual-2, .name-1, .name-2, .health-bar-1, .health-bar-2, .moves-1 > li, .moves-2 > li, .inputname1 > input, .inputname2 > input, .racep1, .racep2, .itemp1, .itemp2, .pconfirm, .event-log {
+    border-style: solid;
+    border-image-source: url("../images/wood-texture.jpg");
+    border-image-slice: 10;
+    border-width: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(224, 218, 193, 0.9);
 }
 
 h1 {
-    font-size: 200%;
+    /*font-family: 'New Rocker', cursive;*/
+    font-size: 250%;
     width: 50%;
     text-align: center;
-    margin: 0 auto 30px auto;
-    border-style: solid;
-    border-image-source: url("../images/wood-texture.jpg");
-    border-image-slice: 12.5;
-    border-image-repeat: stretch;
-    border-width: 12.5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
-    background-color: rgba(224, 218, 193, 0.9);
+    margin: 0 auto 20px auto;
 }
 
 .characterversus {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "character-1 character-2"
+        "character character";
     text-align: center;
-    justify-items: center;
     width: 100%;
     height: 50%;
 }
 
-.character-1, .character-2 {
+.character-1 {
+    grid-area: character-1;
     display: grid;
     grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas:
+        "character-visual-1"
+        "item-visual-1"
+        "name-1"
+        "health-1"
+        "moves-1";
+    margin: 0 0 20px 0;
 }
 
-.character-visual-1, .character-visual-2 {
-    margin: 0 0 10px 0;
+.character-visual-1 {
+    grid-area: character-visual-1;
+    justify-self: center;
+    margin: 0 0 20px 0;
     width: 175px;
     height: 175px;
-    border-style: solid;
-    border-image-source: url("../images/wood-texture.jpg");
-    border-image-slice: 12.5;
-    border-image-repeat: stretch;
-    border-width: 12.5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
-    background-color: rgba(224, 218, 193, 0.9);
+}
+
+.item-visual-1 {
+    grid-area: item-visual-1;
+    margin: 0 0 20px 0;
+    width: 50px;
+    height: 50px;
+    justify-self: center;
+}
+
+.name-1 {
+    font-family: 'New Rocker', cursive;
+    grid-area: name-1;
+    margin: 0 0 20px 0;
+    width: 50%;
+    justify-self: center;
+}
+
+.health-bar-1 {
+    grid-area: health-1;
+    margin: 0 0 20px 0;
+    width: 60%;
+    height: 40px;
+    background-color: rgb(0, 200, 0);
+    justify-self: center;
+}
+
+.moves-1 {
+    grid-area: moves-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "hit heal yield";
+    justify-items: center;
+}
+
+.moves-1 > li {
+    width: 50%;
+}
+
+
+
+
+.character-2 {
+    grid-area: character-2;
+    display: grid;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas:
+        "character-visual-2"
+        "item-visual-2"
+        "name-2"
+        "health-2"
+        "moves-2";
+    margin: 0 0 20px 0;
+}
+
+.character-visual-2 {
+    grid-area: character-visual-2;
+    justify-self: center;
+    margin: 0 0 20px 0;
+    width: 175px;
+    height: 175px;
 }
 
 img {
     width: 100%;
 }
 
-.item-visual-1, .item-visual-2 {
-    margin: 0 auto 20px auto;
+.item-visual-2 {
+    grid-area: item-visual-2;
+    margin: 0 0 20px 0;
     width: 50px;
     height: 50px;
-    border-style: solid;
-    border-image-source: url("../images/wood-texture.jpg");
-    border-image-slice: 12.5;
-    border-image-repeat: stretch;
-    border-width: 12.5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
-    background-color: rgba(224, 218, 193, 0.9);
+    justify-self: center;
 }
 
-.name-1, .name-2 {
+.name-2 {
+    
+    grid-area: name-2;
     margin: 0 0 20px 0;
-    border-style: solid;
-    border-image-source: url("../images/wood-texture.jpg");
-    border-image-slice: 12.5;
-    border-image-repeat: stretch;
-    border-width: 12.5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
-    background-color: rgba(224, 218, 193, 0.9);
+    width: 50%;
+    justify-self: center;
 }
 
-.health-bar-1, .health-bar-2 {
+.health-bar-2 {
+    grid-area: health-2;
     margin: 0 0 20px 0;
-    border-style: solid;
-    border-image-source: url("../images/wood-texture.jpg");
-    border-image-slice: 12.5;
-    border-image-repeat: stretch;
-    border-width: 12.5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
-    background-color: rgba(224, 218, 193, 0.9);
+    width: 60%;
+    height: 40px;
+    background-color: rgb(0, 200, 0);
+    justify-self: center;
 }
 
-.pconfirm {
-    text-align: center;
-}
-
-.moves-section {
+.moves-2 {
+    grid-area: moves-2;
     display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-.moves-1, .moves-2 {
-    display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "hit heal yield";
     justify-items: center;
 }
 
-.moves-1 > li, .moves-2 > li {
-    border-style: solid;
-    border-image-source: url("../images/wood-texture.jpg");
-    border-image-slice: 12.5;
-    border-image-repeat: stretch;
-    border-width: 12.5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.7);
-    background-color: rgba(224, 218, 193, 0.9);
+.moves-2 > li {
+    width: 50%;
 }
-
-
 
 button {
     width: 100%;
     border: 0;
+    margin: 0;
+    padding: 5px 0;
+}
+
+
+
+
+.character {
+    grid-area: character;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content min-content;
+    grid-template-areas:
+        "input-name-1 input-name-2"
+        "race-1 race-2"
+        "item-1 item-2";
+}
+
+.inputname1 {
+    grid-area: input-name-1;
+    margin: 0 0 20px 0;
+    width: 60%;
+    justify-self: center;
+}
+
+.inputname1 > p {
+    margin: 0 0 20px 0;
+}
+
+.inputname2 {
+    grid-area: input-name-2;
+    margin: 0 0 20px 0;
+}
+
+.inputname2 > p {
+    margin: 0 0 20px 0;
+}
+
+.racep1 {
+    grid-area: race-1;
+    margin: 0 0 20px 0;
+    width: 60%;
+    justify-self: center;
+}
+
+.racep2 {
+    grid-area: race-2;
+    margin: 0 0 20px 0;
+    width: 60%;
+    justify-self: center;
+}
+
+.itemp1 {
+    grid-area: item-1;
+    margin: 0 0 20px 0;
+    width: 60%;
+    justify-self: center;
+}
+
+.itemp2 {
+    grid-area: item-2;
+    margin: 0 0 20px 0;
+    width: 60%;
+    justify-self: center;
+}
+
+.pconfirm {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    justify-self: center;
+}
+
+h2 {
+    font-size: 150%;
+    font-family: 'New Rocker', cursive;
+}
+
+.event-log {
+    min-height: 50px;
+    max-height: 400px;
+    overflow-y: scroll;
 }
